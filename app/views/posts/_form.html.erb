@@ -1,0 +1,17 @@
+<%= form_with model: @post, local: true do |form| %>
+  
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :users_list %><br>
+    <%= collection_select(:post, :user_id, User.all, :id, :email,  { include_blank: true }, { multiple: true }) %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
